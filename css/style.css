@@ -51,36 +51,72 @@ a:hover {
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 24px;
+    }
 }
 
 .site-header {
     background: linear-gradient(135deg, rgba(85, 16, 16, 0.92), rgba(122, 43, 43, 0.92));
     color: #fff;
+    position: relative;
 }
 
 .site-header-inner {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 28px 24px;
+    padding: 12px 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 32px;
+    gap: 12px;
 }
 
-/* Hamburger menu button (hidden on desktop) */
+.site-brand {
+    font-size: 20px;
+    letter-spacing: 1.2px;
+    font-weight: bold;
+    text-transform: uppercase;
+    flex: 0 1 auto;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+    .site-header-inner {
+        padding: 28px 24px;
+        gap: 32px;
+    }
+
+    .site-brand {
+        font-size: 24px;
+        letter-spacing: 1.6px;
+    }
+}
+
+/* Hamburger menu button - shown on mobile, hidden on desktop */
 .menu-toggle {
-    display: none;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
     background: transparent;
     border: 0;
     padding: 8px;
     cursor: pointer;
     width: 44px;
     height: 44px;
-    align-items: center;
-    justify-content: center;
+    flex: 0 0 auto;
+    margin-left: auto;
 }
+
 .menu-toggle .bar {
     display: block;
     width: 22px;
@@ -90,10 +126,10 @@ a:hover {
     transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-/* Transform bars into an X when open */
-.menu-toggle .bar { display: none; }
+.menu-toggle .bar {
+    display: none;
+}
 
-/* Menu text label */
 .menu-toggle .menu-label {
     display: inline-block;
     color: #ffece6;
@@ -107,88 +143,81 @@ a:hover {
     content: '';
 }
 
-/* Mobile styles: collapse nav into overlay menu */
+/* Navigation - Mobile: hidden offscreen, Desktop: visible horizontal */
+.site-nav {
+    display: none;
+}
+
+.site-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav a {
+    color: #ffece6;
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+.site-nav a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 801px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .site-nav {
+        display: block;
+        position: static;
+        height: auto;
+        width: auto;
+        background: none;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .site-nav ul {
+        display: flex;
+        gap: 18px;
+    }
+
+    .site-nav a {
+        font-size: 12px;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        font-weight: 600;
+        padding: 6px 10px;
+        border-radius: var(--radius-sm);
+    }
+
+    .site-nav a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+    }
+}
+
 @media (max-width: 800px) {
-    .site-header {
-        position: relative;
-    }
-
-    .site-header-inner {
-        padding: 12px 16px;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: flex-start;
-    }
-
-    /* Keep brand at left, toggle at right */
-    /* Allow brand to shrink and truncate so it never wraps to next line */
-    .site-brand {
-        flex: 1 1 auto;
-        min-width: 0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    /* Ensure the toggle keeps its width and stays right-aligned */
-    .menu-toggle {
-        flex: 0 0 auto;
-        margin-left: 12px;
-    }
-
-    .menu-toggle {
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 4px;
-        order: 2;
-        margin-left: auto;
-        flex: 0 0 auto;
-    }
-
-    .site-brand {
-        flex: 0 0 auto;
-    }
-
-    /* Anchor the nav to the right side as a slide-in panel */
     .site-nav {
         display: block;
         position: fixed;
         top: 0;
         right: 0;
         height: 100vh;
-        width: 0; /* collapsed by default */
+        width: 0;
         overflow: hidden;
         background: linear-gradient(180deg, rgba(85,16,16,0.98), rgba(122,43,43,0.98));
         color: #fff;
-        padding-top: 72px; /* space for header */
+        padding-top: 72px;
         box-shadow: -8px 0 30px rgba(0,0,0,0.25);
         transition: width 0.28s ease;
         z-index: 1200;
     }
 
-    .footer-contacts .contact-item {
-         display: flex;
-         align-items: center;
-         gap: 8px;
-         color: var(--color-text);
-    }
-
-    .step-icon {
-         width: 48px;
-         height: 48px;
-         border-radius: 50%;
-         background: rgba(85,16,16,0.08);
-         display: inline-flex;
-         align-items: center;
-         justify-content: center;
-         font-weight: 700;
-         color: var(--color-primary);
-    }
-
     .site-nav.open {
-        width: 260px; /* slide in */
+        width: 260px;
     }
 
     .site-nav ul {
@@ -196,7 +225,6 @@ a:hover {
         flex-direction: column;
         gap: 6px;
         padding: 8px 12px;
-        margin: 0;
     }
 
     .site-nav li {
@@ -215,7 +243,6 @@ a:hover {
         background: rgba(255,255,255,0.06);
     }
 
-    /* Dim the page when menu is open */
     body.menu-open::after {
         content: '';
         position: fixed;
@@ -224,41 +251,9 @@ a:hover {
         z-index: 1100;
     }
 
-    /* When menu is open, prevent body scrolling */
     body.menu-open {
         overflow: hidden;
     }
-}
-
-.site-brand {
-    font-size: 24px;
-    letter-spacing: 1.6px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.site-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 18px;
-    margin: 0;
-    padding: 0;
-}
-
-.site-nav a {
-    color: #ffece6;
-    font-size: 12px;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-    font-weight: 600;
-    padding: 6px 10px;
-    border-radius: var(--radius-sm);
-    transition: background var(--transition-base), color var(--transition-base);
-}
-
-.site-nav a:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
 }
 
 /* Layout legacy pages */
@@ -283,56 +278,102 @@ nav td a {
 main {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 60px 24px 80px;
+    padding: 40px 16px 60px;
 }
 
 .home main {
-    padding-top: 80px;
-    padding-bottom: 100px;
+    padding-top: 60px;
+    padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+    main {
+        padding: 60px 24px 80px;
+    }
+
+    .home main {
+        padding-top: 80px;
+        padding-bottom: 100px;
+    }
 }
 
 .home .hero {
     background: linear-gradient(135deg, rgba(255, 236, 230, 0.9), rgba(255, 245, 240, 0.8));
     border-radius: var(--radius-lg);
-    padding: 60px 48px;
-    margin-bottom: 64px;
+    padding: 40px 24px;
+    margin-bottom: 40px;
     box-shadow: var(--shadow-soft);
 }
 
 .home .hero .container {
     display: flex;
-    gap: 48px;
+    flex-direction: column;
+    gap: 32px;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .home .hero-text {
-    flex: 1 1 55%;
+    flex: 1;
+    width: 100%;
 }
 
 .home .hero-text h1 {
-    font-size: 28px;
+    font-size: 24px;
     line-height: 1.3;
-    margin: 12px 0 20px;
+    margin: 12px 0 16px;
     color: var(--color-primary);
 }
 
 .home .hero-text p {
     color: var(--color-muted);
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .home .hero {
+        padding: 60px 48px;
+        margin-bottom: 64px;
+    }
+
+    .home .hero .container {
+        flex-direction: row;
+        gap: 48px;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .home .hero-text {
+        flex: 1 1 55%;
+    }
+
+    .home .hero-text h1 {
+        font-size: 28px;
+    }
 }
 
 .hero-actions {
     display: flex;
-    gap: 16px;
+    flex-direction: column;
+    gap: 12px;
     flex-wrap: wrap;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .hero-actions {
+        flex-direction: row;
+        width: auto;
+        gap: 16px;
+    }
 }
 
 .button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 18px;
+    padding: 10px 16px;
     font-size: 12px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -340,6 +381,15 @@ main {
     border-radius: var(--radius-sm);
     border: 1px solid transparent;
     transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base), color var(--transition-base);
+    width: 100%;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .button {
+        width: auto;
+        padding: 10px 18px;
+    }
 }
 
 .button.primary {
@@ -377,13 +427,26 @@ main {
 }
 
 .home .services {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+    .home .services {
+        margin-bottom: 60px;
+    }
 }
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+@media (min-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+    }
 }
 
 .card {
@@ -419,17 +482,30 @@ main {
 .workflow {
     background: var(--color-surface);
     border-radius: var(--radius-lg);
-    padding: 48px 40px;
+    padding: 32px 20px;
     box-shadow: var(--shadow-soft);
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
-/* Grid for workflow area: left downloads and right instructions */
+@media (min-width: 768px) {
+    .workflow {
+        padding: 48px 40px;
+        margin-bottom: 60px;
+    }
+}
+
 .workflow-container .workflow-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
+    grid-template-columns: 1fr;
+    gap: 24px;
     align-items: start;
+}
+
+@media (min-width: 768px) {
+    .workflow-container .workflow-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+    }
 }
 
 .workflow-left .download-box {
@@ -446,7 +522,7 @@ main {
 }
 
 .download-list li a {
-    display: inline-block;
+    display: block;
     width: 100%;
     text-align: center;
 }
@@ -473,14 +549,28 @@ main {
 }
 
 .values {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+    .values {
+        margin-bottom: 60px;
+    }
 }
 
 .values-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 32px;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+@media (min-width: 768px) {
+    .values-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 32px;
+        align-items: center;
+    }
 }
 
 .values-list {
@@ -510,12 +600,22 @@ main {
     background: linear-gradient(135deg, rgba(85, 16, 16, 0.95), rgba(122, 43, 43, 0.9));
     color: #fff;
     border-radius: var(--radius-lg);
-    padding: 48px 40px;
+    padding: 36px 20px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
     box-shadow: var(--shadow-soft);
+}
+
+@media (min-width: 768px) {
+    .cta-banner {
+        padding: 48px 40px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+    }
 }
 
 /* Specific spacing for the formazione CTA section */
@@ -542,8 +642,18 @@ main {
 
 .cta-actions {
     display: flex;
-    gap: 14px;
+    flex-direction: column;
+    gap: 12px;
     flex-wrap: wrap;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .cta-actions {
+        flex-direction: row;
+        width: auto;
+        gap: 14px;
+    }
 }
 
 /* Make the formazione CTA use the same color / text styling as the
@@ -595,13 +705,165 @@ main ul {
 
 table {
     border-collapse: collapse;
+    width: 100%;
+    margin: 16px 0;
 }
 
 table td,
 table th {
     font-family: Verdana, sans-serif;
     font-size: 12px;
-    padding: 4px 6px;
+    padding: 8px;
+    border: 1px solid rgba(85, 16, 16, 0.1);
+    text-align: left;
+}
+
+table th {
+    background: rgba(85, 16, 16, 0.05);
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* Download table - responsive stacking on mobile */
+.download-table {
+    font-size: 13px;
+}
+
+.download-table thead {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .download-table thead {
+        display: table-header-group;
+    }
+}
+
+.download-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 20px;
+    border: 1px solid rgba(85, 16, 16, 0.1);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .download-table tbody tr {
+        display: table-row;
+        margin-bottom: 0;
+        border: none;
+        border-bottom: 1px solid rgba(85, 16, 16, 0.1);
+    }
+}
+
+.download-table td {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}
+
+.download-table td::before {
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 6px;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.download-table td:nth-child(1)::before {
+    content: "Mediapolis";
+}
+
+.download-table td:nth-child(2)::before {
+    content: "Mediazione";
+}
+
+.download-table td:nth-child(3)::before {
+    content: "Formazione";
+}
+
+@media (min-width: 768px) {
+    .download-table td::before {
+        display: none;
+    }
+
+    .download-table td {
+        display: table-cell;
+        flex-direction: row;
+        padding: 8px;
+    }
+}
+
+/* Mediatori table - responsive layout */
+.mediatori-table {
+    font-size: 13px;
+}
+
+.mediatori-table thead {
+    display: none;
+}
+
+.mediatori-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 16px;
+    padding: 16px;
+    background: var(--color-surface);
+    border: 1px solid rgba(85, 16, 16, 0.08);
+    border-radius: var(--radius-md);
+}
+
+@media (min-width: 768px) {
+    .mediatori-table tbody tr {
+        display: table-row;
+        margin-bottom: 0;
+        padding: 0;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(85, 16, 16, 0.1);
+        border-radius: 0;
+    }
+}
+
+.mediatori-table td {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-bottom: 8px;
+}
+
+.mediatori-table td:last-child {
+    margin-bottom: 0;
+}
+
+.mediatori-table td::before {
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.mediatori-table td:nth-child(1)::before {
+    content: "Nome";
+}
+
+.mediatori-table td:nth-child(2)::before {
+    content: "Qualifica";
+}
+
+@media (min-width: 768px) {
+    .mediatori-table td::before {
+        display: none;
+    }
+
+    .mediatori-table td {
+        display: table-cell;
+        flex-direction: row;
+        padding: 8px;
+        margin-bottom: 0;
+    }
 }
 
 footer {
@@ -610,7 +872,7 @@ footer {
     text-align: center;
     font-size: 11px;
     color: var(--color-muted);
-    padding: 0 24px;
+    padding: 0 16px;
 }
 
 footer a {
@@ -618,11 +880,23 @@ footer a {
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
     text-align: left;
+}
+
+@media (min-width: 768px) {
+    footer {
+        padding: 0 24px;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
 }
 
 .footer-left, .footer-center, .footer-right {
@@ -653,6 +927,8 @@ form textarea {
     padding: 6px 10px;
     font-family: Tahoma, sans-serif;
     font-size: 12px;
+    max-width: 100%;
+    width: 100%;
 }
 
 form input[type="submit"] {
@@ -671,6 +947,49 @@ form input[type="submit"]:hover {
     background-color: var(--color-secondary);
 }
 
+/* Mobile-first form table styling */
+form table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+}
+
+form table tr {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(85, 16, 16, 0.08);
+    margin-bottom: 12px;
+}
+
+form table td {
+    padding: 8px 0;
+    text-align: left;
+}
+
+form table td:first-child {
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 6px;
+}
+
+@media (min-width: 768px) {
+    form table tr {
+        display: table-row;
+        border-bottom: none;
+    }
+
+    form table td {
+        padding: 8px 12px;
+        border: 1px solid rgba(85, 16, 16, 0.08);
+    }
+
+    form table td:first-child {
+        font-weight: 600;
+        width: 20%;
+        background: rgba(85, 16, 16, 0.02);
+    }
+}
+
 #spazionvuoto,
 #spazio {
     width: 25px;
@@ -682,44 +1001,14 @@ form input[type="submit"]:hover {
 }
 
 @media (max-width: 900px) {
-    /* Keep header elements on a single row up to 900px to avoid shifting logo
-       The mobile layout is handled at 800px and below. */
-    .site-header-inner {
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 16px;
-    }
-
-    .site-nav ul {
-        display: flex;
-        gap: 12px;
-        flex-wrap: nowrap;
-    }
-
-    .home .hero .container {
-        flex-direction: column;
-    }
-
-    .hero-highlights {
-        width: 100%;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-
-    .values-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Stack workflow columns on narrow screens */
-    .workflow-container .workflow-grid {
-        grid-template-columns: 1fr;
-    }
-
+    /* Legacy: keep for backward compatibility */
+}
 
 /* Split workflow: two independent panels side-by-side */
 .split-workflow {
     display: flex;
-    gap: 28px;
+    flex-direction: column;
+    gap: 20px;
     align-items: flex-start;
     margin: 32px 0 40px;
 }
@@ -729,56 +1018,41 @@ form input[type="submit"]:hover {
     background: #fffaf2;
     border-radius: var(--radius-md);
     padding: 28px;
+    width: 100%;
     /* stronger, warmer shadow so panels look detached */
     box-shadow: 0 26px 60px rgba(85,16,16,0.06);
     border: 1px solid rgba(85,16,16,0.08);
 }
 
-.download-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 12px;
-}
+@media (min-width: 768px) {
+    .split-workflow {
+        flex-direction: row;
+        gap: 28px;
+    }
 
-.download-list .divider {
-    height: 1px;
-    background: rgba(85,16,16,0.08);
-    margin: 6px 0 6px;
-}
-
-.download-list .button {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    padding: 12px 16px;
-    font-size: 13px;
+    .split-workflow .workflow-panel {
+        margin-bottom: 0;
+    }
 }
 
 /* Right panel fixed width (desktop) */
 .download-panel {
-    flex: 0 0 380px;
-    max-width: 380px;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: none;
+}
+
+@media (min-width: 768px) {
+    .download-panel {
+        flex: 0 0 380px;
+        max-width: 380px;
+    }
 }
 
 /* Left panel grows to use remaining space */
 .instructions-panel {
     flex: 1 1 0;
-}
-
-@media (max-width: 900px) {
-    .split-workflow {
-        display: block;
-    }
-    .split-workflow .workflow-panel {
-        margin-bottom: 20px;
-    }
-}
-    .cta-banner {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+    width: 100%;
 }
 
 @media (max-width: 600px) {
@@ -786,20 +1060,12 @@ form input[type="submit"]:hover {
         font-size: 13px;
     }
 
-    .site-header-inner {
-        padding: 24px 18px;
-    }
-
     .home .hero {
-        padding: 40px 28px;
+        padding: 32px 16px;
     }
 
     .hero-actions {
         flex-direction: column;
         align-items: stretch;
-    }
-
-    .cta-banner {
-        padding: 36px 28px;
     }
 }
