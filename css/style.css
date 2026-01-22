@@ -372,7 +372,7 @@ main {
 .hero-image {
     max-width: 100%;
     height: auto;
-    margin: 20px 0;
+    margin: 8px 0 20px;
     border-radius: var(--radius-md);
 }
 
