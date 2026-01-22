@@ -1,3 +1,162 @@
+.mediatori-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px !important;
+}
+/* Stile box rosso mediatori */
+.card-rosso {
+    background: linear-gradient(135deg, rgba(85, 16, 16, 0.92), rgba(122, 43, 43, 0.92)) !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    padding: 28px 24px;
+}
+.card-rosso h3, .card-rosso p {
+    color: #fff !important;
+}
+@media (max-width: 900px) {
+    .mediatori-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+    .mediatori-grid .card,
+    .mediatori-grid .card-rosso {
+        width: 100%;
+        margin-bottom: 0;
+        padding: 20px 16px;
+        box-sizing: border-box;
+    }
+}
+/* Download list con icone Word/PDF */
+.download-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 0;
+}
+.download-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+.download-icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 4px;
+}
+.download-label {
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-right: 6px;
+}
+/* Download list con icone Word/PDF */
+.download-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 0;
+}
+.download-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+.download-icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 4px;
+}
+.download-label {
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-right: 6px;
+    min-width: 130px;
+    display: inline-block;
+}
+.icon-link {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 2px;
+    transition: transform 0.15s;
+}
+.icon-link:hover {
+    transform: scale(1.12);
+}
+.formazione-cta .cta-content hr {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+}
+.formazione-cta .cta-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.formazione-cta .cta-content {
+    padding-left: 0;
+    padding-right: 0;
+}
+.formazione-cta .cta-actions {
+    justify-content: center !important;
+    width: 100%;
+}
+/* Fix: hr e pulsante centrato nella formazione-cta */
+.formazione-cta hr {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+.formazione-cta .cta-actions {
+    justify-content: center;
+    width: 100%;
+}
+/* Formazione sezione: lista + pulsante orizzontali */
+.formazione-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 0;
+}
+/* Stile per il testo "prossimi corsi in programma" come "invia una mail a" */
+.prossimi-corsi {
+    color: var(--color-text);
+    font-weight: bold;
+    font-size: 1.4em;
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+.prossimi-corsi strong {
+    color: var(--color-primary);
+    font-size: 1em;
+    font-weight: bold;
+}
+.formazione-row .workflow-steps {
+    flex: 2 1 0;
+    margin-bottom: 0;
+}
+.formazione-row .cta-actions {
+    flex: 1 1 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-top: 46px;
+}
+@media (max-width: 900px) {
+    .formazione-row {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .formazione-row .cta-actions {
+        justify-content: flex-start;
+        margin-top: 0;
+    }
+}
 :root {
     --color-primary: #551010;
     --color-secondary: #7a2b2b;
@@ -31,6 +190,7 @@ body {
     line-height: 1.6;
     color: var(--color-text);
     background-color: #faf7f4;
+    overflow-x: hidden;
 }
 
 header img {
@@ -54,7 +214,7 @@ a:hover {
     padding: 0 16px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .container {
         padding: 0 24px;
     }
@@ -95,7 +255,7 @@ a:hover {
     margin-left: 24px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .site-header-inner {
         padding: 28px 24px;
         gap: 32px;
@@ -176,7 +336,7 @@ a:hover {
     text-decoration: underline;
 }
 
-@media (min-width: 801px) {
+@media (min-width: 911px) {
     .menu-toggle {
         display: none;
     }
@@ -211,7 +371,7 @@ a:hover {
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 910px) {
     .site-brand-logo {
         margin-left: 4px;
     }
@@ -302,7 +462,7 @@ main {
     padding-bottom: 80px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     main {
         padding: 60px 24px 80px;
     }
@@ -347,7 +507,7 @@ main {
     font-size: 14px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .home .hero {
         padding: 60px 48px;
         margin-bottom: 64px;
@@ -385,7 +545,7 @@ main {
     justify-content: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .hero-actions {
         flex-direction: row;
         width: 100%;
@@ -410,7 +570,7 @@ main {
     text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .button {
         width: auto;
         padding: 10px 18px;
@@ -452,7 +612,7 @@ main {
     padding: 0 16px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .section-title {
         padding: 0;
     }
@@ -463,7 +623,7 @@ main {
     padding-right: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .services .container {
         padding-left: 24px;
         padding-right: 24px;
@@ -474,7 +634,7 @@ main {
     margin-bottom: 40px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .home .services {
         margin-bottom: 60px;
     }
@@ -486,7 +646,7 @@ main {
     gap: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .card-grid {
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 24px;
@@ -505,7 +665,7 @@ main {
     margin-bottom: 16px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .card {
         padding: 28px 24px;
         margin-bottom: 0;
@@ -539,7 +699,7 @@ main {
     margin-bottom: 40px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .workflow {
         padding: 48px 40px;
         margin-bottom: 60px;
@@ -553,7 +713,7 @@ main {
     align-items: start;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .workflow-container .workflow-grid {
         grid-template-columns: 1fr 1fr;
         gap: 28px;
@@ -571,6 +731,25 @@ main {
     padding: 0;
     display: grid;
     gap: 12px;
+}
+.download-item {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    gap: 0 10px;
+    font-size: 15px;
+}
+.download-label {
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-right: 0;
+    /* nessuna larghezza fissa */
+}
+.download-icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    /* nessun margin-left */
 }
 
 .download-list li a {
@@ -604,7 +783,7 @@ main {
     margin-bottom: 40px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .values {
         margin-bottom: 60px;
     }
@@ -617,7 +796,7 @@ main {
     align-items: start;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .values-grid {
         grid-template-columns: 1.1fr 0.9fr;
         gap: 32px;
@@ -660,7 +839,7 @@ main {
     box-shadow: var(--shadow-soft);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .cta-banner {
         padding: 48px 40px;
         flex-direction: row;
@@ -675,7 +854,7 @@ main {
     margin-top: 40px; /* base spacing on mobile */
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .formazione-cta {
         margin-top: 64px; /* increased spacing on tablet and up */
     }
@@ -700,7 +879,7 @@ main {
     width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .cta-actions {
         flex-direction: row;
         width: auto;
@@ -785,7 +964,7 @@ table th {
     display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .download-table thead {
         display: table-header-group;
     }
@@ -800,7 +979,7 @@ table th {
     overflow: hidden;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .download-table tbody tr {
         display: table-row;
         margin-bottom: 0;
@@ -835,7 +1014,7 @@ table th {
     content: "Formazione";
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .download-table td::before {
         display: none;
     }
@@ -866,7 +1045,7 @@ table th {
     border-radius: var(--radius-md);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .mediatori-table tbody tr {
         display: table-row;
         margin-bottom: 0;
@@ -905,7 +1084,7 @@ table th {
     content: "Qualifica";
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .mediatori-table td::before {
         display: none;
     }
@@ -938,7 +1117,7 @@ footer a {
     text-align: left;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     footer {
         padding: 0 24px;
     }
@@ -1075,7 +1254,7 @@ form table td[colspan="2"] input[type="submit"] {
     margin-top: 8px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     form table tr {
         display: table-row;
         border: none;
@@ -1116,8 +1295,32 @@ form table td[colspan="2"] input[type="submit"] {
     border-collapse: collapse;
 }
 
-@media (max-width: 900px) {
-    /* Legacy: keep for backward compatibility */
+@media (min-width: 911px) and (max-width: 900px) {
+    /* Intermediate breakpoint to prevent overflow between 768px and 900px */
+    main {
+        padding: 40px 16px 60px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .home .hero {
+        padding: 40px 16px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .split-workflow {
+        flex-direction: column;
+    }
+
+    .download-panel {
+        flex: 1 1 auto;
+        max-width: 100%;
+    }
 }
 
 /* Split workflow: two independent panels side-by-side */
@@ -1140,7 +1343,7 @@ form table td[colspan="2"] input[type="submit"] {
     border: 1px solid rgba(85,16,16,0.08);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .split-workflow {
         flex-direction: row;
         gap: 28px;
@@ -1158,7 +1361,7 @@ form table td[colspan="2"] input[type="submit"] {
     max-width: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 911px) {
     .download-panel {
         flex: 0 0 380px;
         max-width: 380px;
@@ -1185,3 +1388,4 @@ form table td[colspan="2"] input[type="submit"] {
         align-items: stretch;
     }
 }
+
