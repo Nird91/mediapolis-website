@@ -40,43 +40,18 @@
     align-items: center;
     gap: 10px;
     font-size: 15px;
+    justify-content: space-between;
 }
 .download-icons {
     display: flex;
     align-items: center;
     gap: 6px;
-    margin-left: 4px;
+    flex-wrap: nowrap;
 }
 .download-label {
     font-weight: 600;
     color: var(--color-primary);
     margin-right: 6px;
-}
-/* Download list con icone Word/PDF */
-.download-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-left: 0;
-}
-.download-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 15px;
-}
-.download-icons {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-left: 4px;
-}
-.download-label {
-    font-weight: 600;
-    color: var(--color-primary);
-    margin-right: 6px;
-    min-width: 130px;
-    display: inline-block;
 }
 .icon-link {
     display: inline-flex;
@@ -164,6 +139,8 @@
     --color-surface: #ffffff;
     --color-text: #3c2323;
     --color-muted: #735858;
+    --color-pdf: #c41e3a;
+    --color-word: #0078d4;
     --shadow-soft: 0 12px 30px rgba(85, 16, 16, 0.08);
     --radius-lg: 16px;
     --radius-md: 10px;
@@ -726,39 +703,6 @@ main {
     padding: 0;
 }
 
-.download-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 12px;
-}
-.download-item {
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    align-items: center;
-    gap: 0 10px;
-    font-size: 15px;
-}
-.download-label {
-    font-weight: 600;
-    color: var(--color-primary);
-    margin-right: 0;
-    /* nessuna larghezza fissa */
-}
-.download-icons {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    /* nessun margin-left */
-}
-
-.download-list li a {
-    display: block;
-    width: 100%;
-    text-align: center;
-}
-
 /* Make sure both section titles visually match */
 .workflow .section-title {
     margin-top: 0;
@@ -1202,6 +1146,53 @@ form input[type="submit"]:hover {
 
 form input[type="submit"]:active {
     transform: translateY(0);
+}
+
+/* Download buttons for PDF and Word */
+.btn-download {
+    display: inline-block;
+    color: #ffffff;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-family: "Verdana", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: background var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    text-decoration: none;
+    margin-left: 4px;
+    width: 50px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.btn-download:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-download:active {
+    transform: translateY(0);
+}
+
+.btn-pdf {
+    background-color: var(--color-pdf);
+}
+
+.btn-pdf:hover {
+    background-color: #a01729;
+}
+
+.btn-word {
+    background-color: var(--color-word);
+}
+
+.btn-word:hover {
+    background-color: #0063b1;
 }
 
 /* Mobile-first form table styling */
