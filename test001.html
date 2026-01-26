@@ -4,11 +4,79 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
-    <meta name="theme-color" content="#551010">
-    <title>Mediapolis</title>
+    <meta name="theme-color" content="#7a2b2b">
+    <title>Mediapolis: (HOME)</title>
     <link rel="stylesheet" href="css/style.css?v=20260112">
+    <style>
+        /* Test-only hero adjustments scoped to this page */
+        body.test-hero { position: relative; }
+        body.test-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            height: 970px;
+            background: linear-gradient(180deg, rgba(85, 16, 16, 0.98) 0%, rgba(122, 43, 43, 0.92) 26%, rgba(168, 110, 98, 0.26) 68%, rgba(248, 238, 233, 0.14) 84%, rgba(250, 247, 244, 0.94) 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        body.test-hero main { padding-top: 0; position: relative; z-index: 1; }
+        body.test-hero .site-header {
+            position: relative;
+            overflow: visible;
+            background: transparent;
+            z-index: 1;
+        }
+        body.test-hero .hero {
+            background: transparent;
+            color: #fff;
+            border-radius: 0;
+            box-shadow: none;
+            margin: 0;
+            /* full-bleed inside constrained main */
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            width: 100vw;
+            padding: 32px 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+        body.test-hero .hero .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        @media (min-width: 911px) {
+            body.test-hero .hero { padding: 64px 0 56px; margin-bottom: 48px; }
+            body.test-hero .hero .container { gap: 48px; padding-left: 24px; padding-right: 24px; }
+        }
+        @media (max-width: 910px) {
+            body.test-hero .hero { padding-bottom: 56px; margin-bottom: 32px; }
+        }
+        body.test-hero .hero-text { flex: 1 1 55%; max-width: 640px; }
+        body.test-hero .hero-text h1 { color: #fff; font-size: 28px; line-height: 1.3; margin: 0 0 16px; }
+        body.test-hero .hero-text p { color: #fbe7df; margin: 0 0 16px; }
+        body.test-hero .hero-actions { justify-content: flex-start; }
+        body.test-hero .hero-media { flex: 1 1 45%; display: flex; justify-content: flex-end; }
+        body.test-hero .hero-media .hero-image { max-width: 520px; width: 100%; height: auto; border-radius: 8px; margin: 0; }
+        body.test-hero .services { margin-top: -16px; }
+        body.test-hero .values { margin-top: -16px; }
+        body.test-hero .cta-banner { margin-top: -16px; }
+        @media (max-width: 910px) {
+            body.test-hero .hero .container { flex-direction: column; align-items: flex-start; }
+            body.test-hero .hero-text { max-width: none; }
+            body.test-hero .hero-media { width: 100%; justify-content: flex-start; }
+            body.test-hero .hero-media .hero-image { max-width: 100%; }
+        }
+    </style>
 </head>
-<body>
+<body class="home test-hero">
     <header class="site-header">
         <div class="site-header-inner">
             <img src="img/logo-main-white.png" alt="Mediapolis" class="site-brand-logo">
@@ -29,8 +97,69 @@
     <script src="js/menu.js" defer></script>
 
     <main>
-        <div class="container">
-        </div>
+        <section class="hero hero--test">
+            <div class="container">
+                <div class="hero-text">
+                    <h1>Organismo di mediazione ed Ente di formazione iscritto nel registro del Ministero della Giustizia</h1>
+                    <p>Il nostro obiettivo &egrave; quello di fornire una soluzione alle controversie alternativa rispetto al giudizio ordinario, mediante il ricorso dello strumento della mediazione.</p>
+                    <p>Il servizio offre sostegno alle parti che vengono seguite in tutte le fasi della procedura, sia nell'ipotesi di accordo spontaneo, sia nel caso di formulazione di una proposta di conciliazione.</p>
+                    <div class="hero-actions">
+                        <a class="button primary" href="mediazione.html">Avvia una mediazione</a>
+                    </div>
+                </div>
+                <div class="hero-media">
+                    <img src="img/img-index.v1.png" alt="Mediazione" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">Cosa possiamo fare per te</h2>
+                <div class="card-grid">
+                    <article class="card">
+                        <h3>Mediazione civile</h3>
+                        <p>Gestiamo in modo stragiudiziale controversie in ambiti come condominio, diritti reali, usucapione, successioni, locazioni, responsabilit&agrave; medica, contratti bancari e assicurativi.</p>
+                        <a href="mediazione.html" class="text-link">Scopri la procedura</a>
+                    </article>
+                    <article class="card">
+                        <h3>Formazione accreditata</h3>
+                        <p>La nostra scuola riconosciuta offre corsi e aggiornamenti per diventare mediatore civile professionista e sviluppare competenze avanzate.</p>
+                        <a href="formazione.html" class="text-link">Consulta l'offerta formativa</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 'Come si avvia una mediazione' spostata su mediazione.html -->
+
+        <section class="values">
+            <div class="container">
+                <div class="values-grid">
+                    <div>
+                        <h2 class="section-title">Perch&eacute; scegliere proprio noi?</h2>
+                        <p><strong>Mediapolis srl</strong> &egrave; un organismo privato di mediazione, iscritto al n.282 del Registro degli Organismi di Mediazione ed al n.305 dell'elenco degli enti di formazione, tenuti presso il Ministero di Giustizia.
+  
+                            L'organismo, per come previsto dal Decreto Legislativo n.28 del 4 marzo 2010, si propone di aiutare e coadiuvare le parti in lite a dirimere le controversie in via stragiudiziale e, a tal fine, si avvale della collaborazione di professionisti appartenenti agli albi professionali degli Avvocati, dei Revisori Contabili, nonch&eacute; di esperti in materie giuridiche.</p>
+                    </div>
+                    <ul class="values-list">
+                        <li><strong>Assistenza continua garantita</strong>Operiamo per una soluzione condivisa della controversia, valorizzando le esigenze e gli interessi di ciascuna parte.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-banner">
+            <div class="container">
+            <div class="cta-content">
+                <h2>Hai bisogno di avviare una mediazione o desideri maggiori informazioni?</h2>
+                <p>Contattaci e riceverai l'assistenza della nostra segreteria per scegliere il percorso più adatto alle tue esigenze.</p>
+            </div>
+            <div class="cta-actions" style="margin-top:1.5rem;">
+                <a class="button primary alt-white" href="contatti.html">Parla con noi</a>
+            </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -66,8 +195,8 @@
                 <h3>Link utili</h3>
                 <p><a href="downloads.html" style="text-decoration: underline;">Downloads</a><br>
                 <a href="trasparenza.html" style="text-decoration: underline;">Trasparenza</a><br>
-                <a href="privacy-policy.html" style="text-decoration: underline;">Privacy Policy</a><br>
-                <a href="cookie-policy.html" style="text-decoration: underline;">Cookie Policy</a></p>
+                <a href="cookie-policy.html" style="text-decoration: underline;">Cookie Policy</a><br>
+                <a href="privacy-policy.html" style="text-decoration: underline;">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
