@@ -8,6 +8,37 @@
     <title>Sedi - Mediapolis</title>
     <link rel="stylesheet" href="css/style.css?v=20260112">
     <style>
+        .site-nav a {
+            font-size: 14px;
+        }
+        @media (min-width: 911px) and (max-width: 1032px) {
+            .site-nav a {
+                font-size: 11px;
+            }
+            .site-nav ul {
+                gap: 4px;
+            }
+        }
+        @media (min-width: 1033px) {
+            .site-nav ul {
+                gap: 6px;
+            }
+        }
+        .site-brand-logo {
+            margin-left: -8px;
+        }
+        @media (min-width: 911px) and (max-width: 1032px) {
+            .site-brand-logo {
+                height: 60px;
+            }
+        }
+        @media (min-width: 1033px) {
+            .site-brand-logo {
+                height: 70px;
+            }
+        }
+    </style>
+    <style>
         .site-header {
             background: linear-gradient(135deg, rgba(85, 16, 16, 0.98) 0%, rgba(122, 43, 43, 0.92) 100%) !important;
         }
@@ -33,6 +64,7 @@
         </div>
     </header>
     <script src="js/menu.js" defer></script>
+    <script src="js/cookie-banner.js" defer></script>
 
     <main>
         <div class="container">

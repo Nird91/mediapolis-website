@@ -31,7 +31,15 @@
         body.test-hero .site-nav a {
             font-size: 14px;
         }
-        @media (min-width: 911px) {
+        @media (min-width: 911px) and (max-width: 1032px) {
+            body.test-hero .site-nav a {
+                font-size: 11px;
+            }
+            body.test-hero .site-nav ul {
+                gap: 4px;
+            }
+        }
+        @media (min-width: 1033px) {
             body.test-hero .site-nav ul {
                 gap: 6px;
             }
@@ -40,7 +48,12 @@
             margin-left: -8px;
             height: 50px;
         }
-        @media (min-width: 911px) {
+        @media (min-width: 911px) and (max-width: 1032px) {
+            body.test-hero .site-brand-logo {
+                height: 60px;
+            }
+        }
+        @media (min-width: 1033px) {
             body.test-hero .site-brand-logo {
                 height: 70px;
             }
@@ -132,6 +145,7 @@
         </div>
     </header>
     <script src="js/menu.js" defer></script>
+    <script src="js/cookie-banner.js" defer></script>
 
     <main>
         <section class="hero hero--test">

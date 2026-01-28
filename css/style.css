@@ -1381,3 +1381,124 @@ form table td[colspan="2"] input[type="submit"] {
     }
 }
 
+/* Cookie Banner */
+#cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 380px;
+    max-width: calc(100vw - 40px);
+    background: linear-gradient(135deg, rgba(85, 16, 16, 0.98) 0%, rgba(122, 43, 43, 0.95) 100%);
+    color: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+#cookie-banner.cookie-banner-hidden {
+    animation: slideOut 0.3s ease-out;
+    transform: translateX(120%);
+    opacity: 0;
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+}
+
+.cookie-banner-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cookie-banner-text {
+    width: 100%;
+}
+
+.cookie-banner-text p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #fff;
+}
+
+.cookie-banner-text a {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.cookie-banner-text a:hover {
+    text-decoration: none;
+}
+
+.cookie-banner-actions {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.cookie-btn {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cookie-accept,
+.cookie-reject {
+    background: #fff;
+    color: var(--color-primary);
+}
+
+.cookie-accept:hover,
+.cookie-reject:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+    #cookie-banner {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+        max-width: none;
+        padding: 20px;
+    }
+    
+    .cookie-banner-text p {
+        font-size: 13px;
+    }
+    
+    .cookie-btn {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+}
+
