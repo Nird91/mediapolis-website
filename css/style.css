@@ -335,7 +335,7 @@ a:hover {
     }
 
     .site-nav a {
-        font-size: 12px;
+        font-size: 10px;
         letter-spacing: 0.6px;
         text-transform: uppercase;
         font-weight: 600;
@@ -1052,7 +1052,7 @@ footer {
 }
 
 footer a {
-    color: var(--color-primary);
+    color: var(--color-muted);
 }
 
 .footer-content {
