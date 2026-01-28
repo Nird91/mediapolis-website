@@ -153,7 +153,9 @@ html {
     scrollbar-gutter: stable;
     /* Reserve vertical scrollbar area so pages without overflow don't shift layout */
     overflow-y: scroll;
-    background: linear-gradient(135deg, rgba(85, 16, 16, 0.92), rgba(122, 43, 43, 0.92));
+    background: linear-gradient(180deg, #551010 0%, rgba(122, 43, 43, 0.92) 15%, rgba(168, 110, 98, 0.26) 45%, rgba(248, 238, 233, 0.14) 60%, #f8f5e8 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 /* Use border-box everywhere for consistent sizing */
